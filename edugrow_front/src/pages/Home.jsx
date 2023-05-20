@@ -65,6 +65,7 @@ function Home() {
           options={mapOptions}
         >
           <TopBar />
+          <p>브랜치 테스트</p>
           {buildingList?.map((building) => (
             <MarkerF
               key={building["id"]}

@@ -36,7 +36,7 @@ export const SearchInput = styled.input`
 
   font-size: 100%;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 1);
 `;
 
 export const UserImg = styled.img`

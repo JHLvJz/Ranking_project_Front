@@ -3,6 +3,7 @@ import { memo, useCallback, useMemo } from "react";
 import React from "react";
 import TopBar from "../components/TopBar";
 
+/* 건물 데이터 임시 활용 */
 const buildingList = [
   {
     id: 1,

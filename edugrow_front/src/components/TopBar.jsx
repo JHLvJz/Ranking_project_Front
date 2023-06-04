@@ -2,7 +2,10 @@ import {
   ListLogo,
   MypageBox,
   SearchBox,
+  SearchContainer,
   SearchInput,
+  SearchItem,
+  SearchList,
   SearchLogo,
   UserImg,
 } from "../styles/Home";
@@ -10,6 +13,7 @@ import { TopContainer } from "../styles/layout";
 import x from "../SampleData";
 import styled from "styled-components";
 import buildingList from "../SampleData";
+import Search from "./Search";
 
 function TopBar() {
   let matchedList = [];
@@ -22,13 +26,6 @@ function TopBar() {
       );
     }
 
-    // buildingList?.map((building) => {
-    //   //console.log(element["name"], "얍");
-    //   if (building["name"].includes(userInput) && userInput.length !== 0) {
-    //     matchedList.push(building["name"]);
-    //   }
-    // });
-
     console.log(matchedList, "-----");
   }
 
@@ -40,35 +37,22 @@ function TopBar() {
         </MypageBox>
         <SearchBox>
           <ListLogo src="img/list.png" />
-          <div>
-            <SearchInput
-              placeholder="공부할 장소 검색"
-              onChange={(e) => SearchingWord(e.target.value)}
-            />
-            {buildingList?.map((building) => (
-              <div key={building["id"]}>{building["name"]}</div>
-            ))}
-          </div>
+
+          <SearchInput
+            placeholder="공부할 장소 검색"
+            onChange={(e) => SearchingWord(e.target.value)}
+          />
+          <SearchList>
+            <SearchItem>지후</SearchItem>
+            <SearchItem>프링글스</SearchItem>
+            <SearchItem>보노보노</SearchItem>
+          </SearchList>
+
           <SearchLogo src="img/search.png" />
         </SearchBox>
       </TopContainer>
     </div>
   );
 }
-
-/* 검색목록 */
-const SearchList = styled.ul`
-  width: 100%;
-  background-color: blue;
-  z-index: 10;
-  /* display: ${({ isExist }) => (isExist ? "block" : "none")}; */
-`;
-
-const ListItem = styled.li`
-  width: 200px;
-  height: 20px;
-  z-index: 10;
-  background-color: red;
-`;
 
 export default TopBar;

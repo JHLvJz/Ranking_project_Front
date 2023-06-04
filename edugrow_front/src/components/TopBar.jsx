@@ -43,9 +43,9 @@ function TopBar() {
             onChange={(e) => SearchingWord(e.target.value)}
           />
           <SearchList>
-            <SearchItem>지후</SearchItem>
-            <SearchItem>프링글스</SearchItem>
-            <SearchItem>보노보노</SearchItem>
+            {buildingList?.map((item) => (
+              <SearchItem>{item["name"]}</SearchItem>
+            ))}
           </SearchList>
 
           <SearchLogo src="img/search.png" />

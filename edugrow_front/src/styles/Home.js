@@ -39,6 +39,28 @@ export const SearchInput = styled.input`
   color: rgba(0, 0, 0, 1);
 `;
 
+export const SearchList = styled.ul`
+  position: absolute;
+  top: 44px;
+  width: 50%;
+  padding: 0;
+
+  background-color: #eeeeee;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+`;
+
+export const SearchItem = styled.li`
+  width: 50%;
+  height: 30px;
+
+  margin-left: 7%;
+  text-align: left;
+  list-style: none;
+  line-height: 30px;
+`;
+
 export const UserImg = styled.img`
   width: 40%;
   height: 40%;

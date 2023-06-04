@@ -3,6 +3,8 @@ import { memo, useCallback, useMemo } from "react";
 import React from "react";
 import TopBar from "../components/TopBar";
 
+import buildingList from "../SampleData";
+
 /* 건물 데이터 임시 활용 */
 const buildingList = [
   {
@@ -36,6 +38,7 @@ const buildingList = [
     lng: 127.026541,
   },
 ];
+
 
 function Home() {
   const onLoad = (marker) => {

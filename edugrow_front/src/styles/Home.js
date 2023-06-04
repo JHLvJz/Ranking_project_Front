@@ -52,10 +52,13 @@ export const SearchList = styled.ul`
 `;
 
 export const SearchItem = styled.li`
-  width: 50%;
+  width: 100%;
   height: 30px;
 
+  margin-top: 1%;
+  margin-bottom: 1%;
   margin-left: 7%;
+
   text-align: left;
   list-style: none;
   line-height: 30px;

@@ -1,3 +1,5 @@
+/*global google*/
+
 import {
   GoogleMap,
   Marker,
@@ -13,7 +15,6 @@ import TopBar from "../components/TopBar";
 import buildingList from "../SampleData";
 
 function Home() {
-  const [markerPick, setMarkerPick] = useState();
   const [map, setMap] = useState(null);
 
   const onLoad = (marker) => {
@@ -35,10 +36,27 @@ function Home() {
   };
 
   function marckerClicked(markerLat, markerLng) {
-    console.log("----~~~ 마커클릭");
+    // console.log("----~~~ 마커클릭");
 
     map.panTo({ lat: markerLat, lng: markerLng });
-    map.setZoom(17);
+    // map.setZoom(16.5);
+  }
+
+  function myLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+
+        console.log(pos, "---나의 위치---");
+      });
+    }
+    // else {
+    //   // Browser doesn't support Geolocation
+    //   handleLocationError(false, infoWindow, map.getCenter());
+    // }
   }
 
   return (
@@ -57,7 +75,10 @@ function Home() {
           {buildingList?.map((building) => (
             <MarkerF
               key={building["id"]}
-              icon={`/img/${building["id"]}.png`}
+              icon={{
+                url: `/img/${building["id"]}.png`,
+                scaledSize: { width: 50, height: 50 },
+              }}
               position={{
                 lat: building["lat"],
                 lng: building["lng"],
@@ -68,8 +89,16 @@ function Home() {
               onClick={(e) => {
                 marckerClicked(building["lat"], building["lng"]);
               }}
+              animation={1}
             />
           ))}
+          <MarkerF
+            position={center}
+            onLoad={onLoad}
+            onClick={() => {
+              myLocation();
+            }}
+          ></MarkerF>
         </GoogleMap>
       </LoadScript>
     </>

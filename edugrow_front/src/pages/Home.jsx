@@ -1,46 +1,21 @@
-import { GoogleMap, Marker, LoadScript, MarkerF } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  Marker,
+  LoadScript,
+  MarkerF,
+  useGoogleMap,
+} from "@react-google-maps/api";
 import { memo, useCallback, useMemo } from "react";
 import React from "react";
+import { useState, useEffect } from "react";
 import TopBar from "../components/TopBar";
 
 import buildingList from "../SampleData";
 
-/* 건물 데이터 임시 활용 */
-const buildingList = [
-  {
-    id: 1,
-    name: "운초우선교육관",
-    lat: 37.591584,
-    lng: 127.034381,
-  },
-  {
-    id: 2,
-    name: "백주년기념삼성관",
-    lat: 37.589553,
-    lng: 127.034358,
-  },
-  {
-    id: 3,
-    name: "중앙도서관",
-    lat: 37.590814,
-    lng: 127.034115,
-  },
-  {
-    id: 4,
-    name: "하나스퀘어",
-    lat: 37.584919,
-    lng: 127.025963,
-  },
-  {
-    id: 5,
-    name: "과학도서관",
-    lat: 37.584631,
-    lng: 127.026541,
-  },
-];
-
-
 function Home() {
+  const [markerPick, setMarkerPick] = useState();
+  const [map, setMap] = useState(null);
+
   const onLoad = (marker) => {
     console.log("마커가 뿅");
   };
@@ -59,6 +34,13 @@ function Home() {
     disableDefaultUI: true,
   };
 
+  function marckerClicked(marker) {
+    console.log("----~~~ 마커클릭");
+    console.log(marker["latLng"]);
+    setMarkerPick(marker);
+    map.panTo(marker["latLng"]);
+  }
+
   return (
     <>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLEMAP_APIKEY}>
@@ -67,6 +49,9 @@ function Home() {
           center={center}
           zoom={15.5}
           options={mapOptions}
+          onLoad={(indexMap) => {
+            setMap(indexMap);
+          }}
         >
           <TopBar />
           {buildingList?.map((building) => (
@@ -79,6 +64,9 @@ function Home() {
               }}
               onLoad={() => {
                 console.log(`${building.name}마커 뿅`);
+              }}
+              onClick={() => {
+                marckerClicked();
               }}
             />
           ))}

@@ -34,11 +34,11 @@ function Home() {
     disableDefaultUI: true,
   };
 
-  function marckerClicked(marker) {
+  function marckerClicked(markerLat, markerLng) {
     console.log("----~~~ 마커클릭");
-    console.log(marker["latLng"]);
-    setMarkerPick(marker);
-    map.panTo(marker["latLng"]);
+
+    map.panTo({ lat: markerLat, lng: markerLng });
+    map.setZoom(17);
   }
 
   return (
@@ -65,12 +65,11 @@ function Home() {
               onLoad={() => {
                 console.log(`${building.name}마커 뿅`);
               }}
-              onClick={() => {
-                marckerClicked();
+              onClick={(e) => {
+                marckerClicked(building["lat"], building["lng"]);
               }}
             />
           ))}
-          <MarkerF position={center} onLoad={onLoad}></MarkerF>
         </GoogleMap>
       </LoadScript>
     </>

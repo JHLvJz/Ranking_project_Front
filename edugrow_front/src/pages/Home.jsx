@@ -6,6 +6,10 @@ import {
   LoadScript,
   MarkerF,
   useGoogleMap,
+  InfoWindowF,
+  InfoWindow,
+  InfoBox,
+  OverlayViewF,
 } from "@react-google-maps/api";
 import { memo, useCallback, useMemo } from "react";
 import React from "react";
@@ -13,6 +17,7 @@ import { useState, useEffect } from "react";
 import TopBar from "../components/TopBar";
 
 import buildingList from "../SampleData";
+import CustomMarker from "../components/CustomMarker";
 
 function Home() {
   const [map, setMap] = useState(null);
@@ -36,10 +41,15 @@ function Home() {
   };
 
   function marckerClicked(markerLat, markerLng) {
-    // console.log("----~~~ 마커클릭");
-
     map.panTo({ lat: markerLat, lng: markerLng });
     // map.setZoom(16.5);
+
+    return (
+      <MarkerF
+        position={{ lat: markerLat + 0.1, lng: markerLng }}
+        icon={"/img/selected.png"}
+      />
+    );
   }
 
   function myLocation() {
@@ -92,6 +102,7 @@ function Home() {
               animation={1}
             />
           ))}
+
           <MarkerF
             position={center}
             onLoad={onLoad}

@@ -1,46 +1,27 @@
-import { GoogleMap, Marker, LoadScript, MarkerF } from "@react-google-maps/api";
+/*global google*/
+
+import {
+  GoogleMap,
+  Marker,
+  LoadScript,
+  MarkerF,
+  useGoogleMap,
+  InfoWindowF,
+  InfoWindow,
+  InfoBox,
+  OverlayViewF,
+} from "@react-google-maps/api";
 import { memo, useCallback, useMemo } from "react";
 import React from "react";
+import { useState, useEffect } from "react";
 import TopBar from "../components/TopBar";
 
 import buildingList from "../SampleData";
-
-/* 건물 데이터 임시 활용 */
-const buildingList = [
-  {
-    id: 1,
-    name: "운초우선교육관",
-    lat: 37.591584,
-    lng: 127.034381,
-  },
-  {
-    id: 2,
-    name: "백주년기념삼성관",
-    lat: 37.589553,
-    lng: 127.034358,
-  },
-  {
-    id: 3,
-    name: "중앙도서관",
-    lat: 37.590814,
-    lng: 127.034115,
-  },
-  {
-    id: 4,
-    name: "하나스퀘어",
-    lat: 37.584919,
-    lng: 127.025963,
-  },
-  {
-    id: 5,
-    name: "과학도서관",
-    lat: 37.584631,
-    lng: 127.026541,
-  },
-];
-
+import CustomMarker from "../components/CustomMarker";
 
 function Home() {
+  const [map, setMap] = useState(null);
+
   const onLoad = (marker) => {
     console.log("마커가 뿅");
   };
@@ -59,6 +40,35 @@ function Home() {
     disableDefaultUI: true,
   };
 
+  function marckerClicked(markerLat, markerLng) {
+    map.panTo({ lat: markerLat, lng: markerLng });
+    // map.setZoom(16.5);
+
+    return (
+      <MarkerF
+        position={{ lat: markerLat + 0.1, lng: markerLng }}
+        icon={"/img/selected.png"}
+      />
+    );
+  }
+
+  function myLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+
+        console.log(pos, "---나의 위치---");
+      });
+    }
+    // else {
+    //   // Browser doesn't support Geolocation
+    //   handleLocationError(false, infoWindow, map.getCenter());
+    // }
+  }
+
   return (
     <>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLEMAP_APIKEY}>
@@ -67,12 +77,18 @@ function Home() {
           center={center}
           zoom={15.5}
           options={mapOptions}
+          onLoad={(indexMap) => {
+            setMap(indexMap);
+          }}
         >
           <TopBar />
           {buildingList?.map((building) => (
             <MarkerF
               key={building["id"]}
-              icon={`/img/${building["id"]}.png`}
+              icon={{
+                url: `/img/${building["id"]}.png`,
+                scaledSize: { width: 50, height: 50 },
+              }}
               position={{
                 lat: building["lat"],
                 lng: building["lng"],
@@ -80,9 +96,20 @@ function Home() {
               onLoad={() => {
                 console.log(`${building.name}마커 뿅`);
               }}
+              onClick={(e) => {
+                marckerClicked(building["lat"], building["lng"]);
+              }}
+              animation={1}
             />
           ))}
-          <MarkerF position={center} onLoad={onLoad}></MarkerF>
+
+          <MarkerF
+            position={center}
+            onLoad={onLoad}
+            onClick={() => {
+              myLocation();
+            }}
+          ></MarkerF>
         </GoogleMap>
       </LoadScript>
     </>

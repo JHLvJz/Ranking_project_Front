@@ -1,4 +1,4 @@
-const buildingList = [
+export const buildingList = [
   {
     id: 1,
     name: "운초우선교육관",

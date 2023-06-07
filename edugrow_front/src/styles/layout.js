@@ -10,7 +10,7 @@ export const Layout = styled.div`
 
   margin: 0 auto;
   max-width: 430px;
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   font-family: "Noto sans KR", sans-serif;
 
   .scroll::-webkit-scrollbar {

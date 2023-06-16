@@ -1,5 +1,4 @@
 /*global google*/
-
 import {
   GoogleMap,
   Marker,

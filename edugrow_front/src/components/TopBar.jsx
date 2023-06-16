@@ -12,7 +12,6 @@ import {
 import { TopContainer } from "../styles/layout";
 import styled from "styled-components";
 import buildingList from "../SampleData";
-import Search from "./Search";
 import { useRef, useState } from "react";
 
 function TopBar() {

@@ -4,6 +4,13 @@ export const HighContainer = styled.div`
   background-color: yellow;
   position: relative;
   height: 200px;
+  margin: 5px;
+`;
+
+export const LeaContainer = styled.div`
+  background-color: beige;
+  position: relative;
+  height: 200px;
 `;
 
 export const MainText = styled.div`
@@ -42,4 +49,40 @@ export const ResultBox = styled.div`
   border: 1px solid #d34a4d;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 35px;
+`;
+
+export const LeaBox = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+
+  top: 17vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+// Lock상태인지 아닌지에 따라
+// background값과 가운데 img값 다르게 주기 (props로 렌더링) -> img src는 jsx에서 처리
+export const LeaItem = styled.div`
+  position: relative;
+  width: 12vw;
+  height: 14vh;
+  margin: 1.5vw;
+  border-radius: 5px 5px 40px 40px;
+
+  background-color: ${(props) =>
+    props.lock === "on" ? "rgba(177, 177, 177, 0.25)" : "#233554"};
+`;
+
+export const LeaItemLogo = styled.img`
+  width: ${(props) => (props.lock === "on" ? "3.5vw" : "6vw")};
+  height: ${(props) => (props.lock === "on" ? "4.5vh" : "6vh")};
+
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  filter: ${(props) =>
+    props.lock === "on" ? "none" : "brightness(0) invert(1)"};
 `;

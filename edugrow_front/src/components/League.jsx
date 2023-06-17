@@ -1,5 +1,5 @@
 import {
-  LeaBox,
+  BasicBox,
   LeaContainer,
   LeaItem,
   LeaItemLogo,
@@ -10,7 +10,7 @@ function League() {
   return (
     <LeaContainer>
       <MainText>내 리그</MainText>
-      <LeaBox>
+      <BasicBox>
         <LeaItem>
           <LeaItemLogo src="/img/2.png" />
         </LeaItem>
@@ -20,7 +20,7 @@ function League() {
         <LeaItem>
           <LeaItemLogo src="/img/2.png" />
         </LeaItem>
-      </LeaBox>
+      </BasicBox>
     </LeaContainer>
   );
 }

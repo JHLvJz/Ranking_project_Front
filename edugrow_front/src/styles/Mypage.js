@@ -3,27 +3,30 @@ import styled from "styled-components";
 export const HighContainer = styled.div`
   background-color: yellow;
   position: relative;
-  height: 200px;
-  margin: 5px;
+  height: 180px;
+  margin: 0;
+  box-sizing: border-box;
 `;
 
 export const LeaContainer = styled.div`
   background-color: beige;
   position: relative;
-  height: 200px;
-  margin: 5px;
+  height: 160px;
+  margin: 0;
+  box-sizing: border-box;
 `;
 
 export const ArchContainer = styled.div`
   background-color: orange;
   position: relative;
-  height: 200px;
-  margin: 5px;
+  height: 160px;
+  margin: 0;
+  box-sizing: border-box;
 `;
 
 export const MainText = styled.div`
   position: absolute;
-  top: 4vh;
+
   left: 5vw;
 
   font-weight: 700;
@@ -32,8 +35,8 @@ export const MainText = styled.div`
 
 export const MedalBox = styled.div`
   position: absolute;
-  top: 3vh;
-  right: 6vw;
+  top: 1vh;
+  right: 7%;
 
   /* max-width: 30%; */
   width: 35%;
@@ -46,12 +49,12 @@ export const MedalBox = styled.div`
 
 export const ResultBox = styled.div`
   position: absolute;
-  top: 20vh;
+  top: 63%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
 
   width: 80%;
-  height: 120px;
+  height: 100px;
 
   background: #d34a4d;
   border: 1px solid #d34a4d;
@@ -64,23 +67,33 @@ export const BasicBox = styled.div`
   display: flex;
   flex-direction: row;
 
-  top: 17vh;
-  left: 50%;
+  top: 13vh;
+  left: 55%;
+  margin-right: 0;
+  padding-right: 0;
 
   background-color: blue;
-  width: 50vw;
+  width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
   transform: translate(-50%, -50%);
+
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 // Lock상태인지 아닌지에 따라
 // background값과 가운데 img값 다르게 주기 (props로 렌더링) -> img src는 jsx에서 처리
 export const LeaItem = styled.div`
   position: relative;
-  width: 12vw;
-  height: 14vh;
-  margin: 1.5vw;
+  top: 0;
+  width: 80px;
+  height: 12vh;
+  margin-right: 20px;
   border-radius: 5px 5px 40px 40px;
 
   background-color: ${(props) =>
@@ -88,8 +101,8 @@ export const LeaItem = styled.div`
 `;
 
 export const LeaItemLogo = styled.img`
-  width: ${(props) => (props.lock === "on" ? "3.5vw" : "6vw")};
-  height: ${(props) => (props.lock === "on" ? "4.5vh" : "6vh")};
+  width: ${(props) => (props.lock === "on" ? "20%" : "27%")};
+  height: ${(props) => (props.lock === "on" ? "20%" : "28%")};
 
   position: absolute;
   top: 45%;
@@ -102,24 +115,25 @@ export const LeaItemLogo = styled.img`
 
 export const ArchItem = styled.div`
   position: relative;
-  width: 40vw;
+  width: 400px;
   height: 15vh;
 
-  top: 1vh;
-  left: 3vw;
+  top: 0.3vh;
 `;
 
 export const UnitBox = styled.div`
   position: relative;
   background: #eeeeee;
 
-  width: 8vw;
+  width: 60px;
   height: 4.5vh;
 
   font-weight: 700;
   font-size: 1em;
   line-height: 4.5vh;
   text-align: center;
+
+  margin-right: 100px;
 
   /* background-color: red; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -128,11 +142,11 @@ export const UnitBox = styled.div`
 
 export const HourBox = styled.div`
   position: absolute;
-  left: 1vw;
+  left: 20%;
   top: 2vh;
 
-  width: 15vw;
-  height: 10vh;
+  width: 200%;
+  height: 70px;
 
   background: rgba(238, 238, 238, 0.51);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

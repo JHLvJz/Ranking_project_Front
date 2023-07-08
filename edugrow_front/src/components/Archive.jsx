@@ -13,22 +13,16 @@ function Archive() {
       <MainText>아카이브</MainText>
       <BasicBox>
         <ArchItem>
-          <UnitBox>
-            일간
-            <HourBox></HourBox>
-          </UnitBox>
+          <HourBox />
+          <UnitBox>일간</UnitBox>
         </ArchItem>
         <ArchItem>
-          <UnitBox>
-            주간
-            <HourBox></HourBox>
-          </UnitBox>
+          <HourBox />
+          <UnitBox>주간</UnitBox>
         </ArchItem>
         <ArchItem>
-          <UnitBox>
-            월간
-            <HourBox></HourBox>
-          </UnitBox>
+          <HourBox />
+          <UnitBox>월간</UnitBox>
         </ArchItem>
       </BasicBox>
     </ArchContainer>

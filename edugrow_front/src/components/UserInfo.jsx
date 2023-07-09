@@ -55,14 +55,14 @@ const ProfileImgBox = styled.div`
 
 const ProfileImg = styled.img`
   position: absolute;
-  width: 70%;
+  width: 80%;
   height: 11.5vh;
   border-radius: 100%;
 
   top: 2vh;
   left: 50%;
   transform: translate(-50%);
-  background-color: aliceblue;
+  background-color: beige;
 `;
 
 const BelongInfo = styled.div`

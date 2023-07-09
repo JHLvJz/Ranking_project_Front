@@ -1,8 +1,19 @@
 import styled from "styled-components";
 
+export const TopNavContainer = styled.div`
+  position: relative;
+  margin: 0;
+  height: 4vh;
+  text-align: center;
+  padding: 2%;
+  line-height: 4vh;
+  font-weight: 900;
+  font-size: 1.2em;
+`;
+
 export const InfoContainer = styled.div`
   position: relative;
-  height: 180px;
+  height: 24vh;
   margin: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
@@ -13,7 +24,7 @@ export const HighContainer = styled.div`
 
   position: relative;
   height: 180px;
-  margin: 0;
+  margin: 2vh 0 0 0;
   box-sizing: border-box;
 `;
 

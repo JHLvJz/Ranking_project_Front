@@ -1,8 +1,14 @@
 import "../styles/Stopwatch.css";
+import styled from "styled-components";
+import React from "react";
+
+export const Wrapper = styled.div`
+  background-color: "1E1E1E";
+`;
 
 function Stopwatch() {
   return (
-    <div className="wrapper">
+    <Wrapper>
       <header>
         <h1>StopWatch</h1>
         <div className="line"></div>
@@ -17,7 +23,7 @@ function Stopwatch() {
           <button id="stop"></button>
         </div>
       </body>
-    </div>
+    </Wrapper>
   );
 }
 

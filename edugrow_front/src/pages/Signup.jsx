@@ -1,3 +1,4 @@
+import { PageTitle1, Input, InputBox } from "../styles/Signup";
 import styled from "styled-components";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -57,7 +58,7 @@ function Signup() {
                 size="Button"
                 id="id"
                 name="id"
-                ref={register}
+                {...register("id")}
               />
               <span className="setBtn">
                 <span>중복확인</span>
@@ -69,7 +70,9 @@ function Signup() {
                 type="password"
                 id="password"
                 name="password"
-                ref={register({ required: "비밀번호를 입력해 주세요." })}
+                {...register("password", {
+                  required: "비밀번호를 입력해 주세요.",
+                })}
               />
             </span>
             <label for="name">닉네임</label>
@@ -79,7 +82,7 @@ function Signup() {
                 size="Button"
                 id="name"
                 name="name"
-                ref={register}
+                {...register("name")}
               />
               <span className="setBtn">
                 <span>중복확인</span>
@@ -96,13 +99,18 @@ function Signup() {
                 size="Url"
                 id="mail"
                 name="mail"
-                ref={register}
+                {...register("mail")}
               />
               <span class="url">@korea.ac.kr</span>
             </InputBox>
             <label for="college">단과대학</label>
             <span className="box">
-              <Input type="text" id="college" name="college" ref={register} />
+              <Input
+                type="text"
+                id="college"
+                name="college"
+                {...register("college")}
+              />
             </span>
             <label for="dept">학과</label>
             <InputBox>
@@ -111,7 +119,7 @@ function Signup() {
                 className="withBtn"
                 id="dept"
                 name="dept"
-                ref={register}
+                {...register("dept")}
               />
               <label for="showMajor" class="setBtn">
                 <input type="checkbox" id="showMajor" />
@@ -120,7 +128,12 @@ function Signup() {
             </InputBox>
             <label for="subject">공부영역 (optional)</label>
             <span className="box">
-              <Input type="text" id="subject" name="subject" ref={register} />
+              <Input
+                type="text"
+                id="subject"
+                name="subject"
+                {...register("subject")}
+              />
             </span>
           </div>
           <div className="AddInfo">
@@ -138,7 +151,7 @@ function Signup() {
               id="profile"
               accept="image/png, image/jpeg"
               name="profileImg"
-              ref={register}
+              {...register("profileImg")}
             />
           </div>
           <input type="submit" id="join" value="회원가입하기" />

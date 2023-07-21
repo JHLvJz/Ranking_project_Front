@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { React, useState, useRef } from "react";
-import GlobalFonts from "../fonts/fonts";
 import StopwatchImg from "../img/StopwatchImg.png";
 import StopImg from "../img/SwStop.png";
 import StartImg from "../img/SwStart.png";
@@ -111,7 +110,6 @@ function Stopwatch() {
 
   return (
     <Wrapper>
-      <GlobalFonts />
       <Sw id="time">
         <SwImg src={StopwatchImg} />
         <Outline>

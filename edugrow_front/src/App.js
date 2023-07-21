@@ -1,5 +1,6 @@
 import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GlobalFonts from "./fonts/fonts";
 import { Layout } from "./styles/layout";
 import Ready from "./pages/Ready";
 import Mypage from "./pages/Mypage";
@@ -11,6 +12,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <div className="App">
+          <GlobalFonts />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/ready" element={<Ready />} />

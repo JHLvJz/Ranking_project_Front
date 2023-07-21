@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import GlobalFont from "../fonts/fonts";
 
 const InputWidth = {
   Normal: "291px",
@@ -11,7 +12,7 @@ export const PageTitle1 = styled.h1`
   width: 111px;
   height: 48px;
 
-  font-family: "Mina";
+  font-family: "Mina Regular";
   font-style: normal;
   font-weight: 400;
   font-size: 30px;

@@ -1,8 +1,28 @@
-import { PageTitle1, Input, InputBox } from "../styles/Signup";
+import { Input, InputBox } from "../styles/Signup";
 import styled from "styled-components";
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+
+const Wrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+`;
+
+const Title1 = styled.h1`
+  margin-bottom: 0;
+  width: 111px;
+  height: 48px;
+
+  font-family: "Mina Regular";
+  font-weight: 400;
+  font-size: 30px;
+
+  color: #000;
+`;
+
+const Title3 = styled.h3``;
 
 export const Label = styled.label`
   position: relative;
@@ -41,9 +61,9 @@ function Signup() {
   };
 
   return (
-    <div className="wrapper">
+    <Wrapper>
       <header>
-        <PageTitle1>회원가입</PageTitle1>
+        <Title1>회원가입</Title1>
         <h3 id="headerTitle">Let's start study</h3>
       </header>
       <div className="container">
@@ -158,7 +178,7 @@ function Signup() {
         </form>
       </div>
       <footer></footer>
-    </div>
+    </Wrapper>
   );
 }
 

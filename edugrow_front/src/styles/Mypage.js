@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
+export const ProfileContainer = styled.div`
+  background-color: white;
+  height: 140px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+`;
+
 export const HighContainer = styled.div`
-  background-color: yellow;
+  background-color: white;
   position: relative;
   height: 180px;
   margin: 0;
@@ -25,7 +32,9 @@ export const ArchContainer = styled.div`
 `;
 
 export const MainText = styled.div`
+  margin-top: 40px;
   position: absolute;
+  font-family: "Noto Sans Light";
 
   left: 5vw;
 

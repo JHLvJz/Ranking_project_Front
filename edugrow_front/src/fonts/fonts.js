@@ -4,6 +4,7 @@ import MinaBold from "./Mina-Bold.woff";
 import MinaRegular from "./Mina-Regular.woff";
 import NotoSansLight from "./NotoSans-Light.woff";
 import NotoSansRegular from "./NotoSans-Regular.woff";
+import NexonFootballB from "./NEXON-Football-Gothic-B.woff";
 
 const GlobalFonts = createGlobalStyle`
   @font-face {
@@ -14,6 +15,7 @@ const GlobalFonts = createGlobalStyle`
   @font-face {
     font-family: "Mina Bold";
     src: local("Mina Bold"), url(${MinaBold}) format('woff');
+    font-weight: 700;
   }
 
   @font-face {
@@ -29,6 +31,11 @@ const GlobalFonts = createGlobalStyle`
   @font-face {
     font-family: "Noto Sans Regular";
     src: local("Noto Sans Regular"), url(${NotoSansRegular}) format('woff');
+  }
+
+  @font-face {
+    font-family: "Nexon Football Gothic B";
+    src: local("Nexon Football Gothic B"), url(${NexonFootballB}) format('woff');
   }
 `;
 

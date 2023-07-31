@@ -24,7 +24,7 @@ export const LeaContainer = styled.div`
 `;
 
 export const ArchContainer = styled.div`
-  background-color: orange;
+  background-color: white;
   position: relative;
   height: 160px;
   margin: 0;
@@ -91,12 +91,12 @@ export const BasicBox = styled.div`
   display: flex;
   flex-direction: row;
 
-  top: 13vh;
+  top: 130px;
   left: 55%;
   margin-right: 0;
   padding-right: 0;
 
-  background-color: blue;
+  background-color: white;
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -149,10 +149,10 @@ export const UnitBox = styled.div`
   position: relative;
   background: #eeeeee;
 
-  width: 60px;
-  height: 4.5vh;
+  width: 55px;
+  height: 30px;
 
-  font-weight: 700;
+  font-family: "Nexon Football Gothic B";
   font-size: 1em;
   line-height: 4.5vh;
   text-align: center;
@@ -162,17 +162,19 @@ export const UnitBox = styled.div`
   /* background-color: red; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  z-index: 2;
 `;
 
 export const HourBox = styled.div`
   position: absolute;
-  left: 20%;
+  left: 10px;
   top: 2vh;
 
-  width: 200%;
-  height: 70px;
+  width: 123px;
+  height: 101px;
 
   background: rgba(238, 238, 238, 0.51);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  z-index: 1;
 `;

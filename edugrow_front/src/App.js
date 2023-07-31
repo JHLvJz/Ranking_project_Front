@@ -6,6 +6,7 @@ import Ready from "./pages/Ready";
 import Mypage from "./pages/Mypage";
 import Stopwatch from "./pages/Stopwatch";
 import Signup from "./pages/Signup";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/stopwatch" element={<Stopwatch />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
+          <Footer></Footer>
         </div>
       </Layout>
     </BrowserRouter>

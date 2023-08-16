@@ -21,7 +21,7 @@ const Background = styled.div`
   position: absolute;
   width: 100%;
   min-height: calc(100vh - 100px);
-  background-color: rgba(81, 122, 154, 1);
+  background-color: rgb(81, 122, 154);
   background-attachment: fixed;
   background-size: cover;
   overflow: auto;

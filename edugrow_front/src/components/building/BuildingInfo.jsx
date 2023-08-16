@@ -10,7 +10,7 @@ const Container = styled.div`
   justify-content: left;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  ms-overflow-style: none; /* IE and Edge */
+  /* ms-overflow-style: none; IE and Edge */
   scrollbar-width: none; /* Firefox */
   ::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/

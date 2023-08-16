@@ -43,6 +43,11 @@ const GlobalFonts = createGlobalStyle`
     font-family: "Cookierun Bold";
     src: local("Cookierun Bold"), url(${CookieRun}) format('woff');
   }
+
+  @font-face {
+    font-family: 'Nexon lv1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+}
 `;
 
 export default GlobalFonts;

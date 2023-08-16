@@ -7,7 +7,9 @@ import Mypage from "./pages/Mypage";
 import Stopwatch from "./pages/Stopwatch";
 import Signup from "./pages/Signup";
 import Building from "./pages/Building";
+import Ranking from "./pages/Ranking";
 import Footer from "./components/layout/Footer";
+import Rank from "./components/building/Rank";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             <Route path="/stopwatch" element={<Stopwatch />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/building" element={<Building />} />
+            <Route path="/ranking" element={<Ranking />} />
           </Routes>
           {/* <Footer></Footer> */}
         </div>

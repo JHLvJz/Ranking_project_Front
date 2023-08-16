@@ -10,6 +10,7 @@ export const Layout = styled.div`
 
   margin: 0 auto;
   max-width: 430px;
+  height: 100%;
   /* background-color: aliceblue; */
   font-family: "Noto sans KR", sans-serif;
 

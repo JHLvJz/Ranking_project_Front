@@ -5,6 +5,7 @@ import MinaRegular from "./Mina-Regular.woff";
 import NotoSansLight from "./NotoSans-Light.woff";
 import NotoSansRegular from "./NotoSans-Regular.woff";
 import NexonFootballB from "./NEXON-Football-Gothic-B.woff";
+import CookieRun from "./CookieRun-Bold.woff";
 
 const GlobalFonts = createGlobalStyle`
   @font-face {
@@ -36,6 +37,11 @@ const GlobalFonts = createGlobalStyle`
   @font-face {
     font-family: "Nexon Football Gothic B";
     src: local("Nexon Football Gothic B"), url(${NexonFootballB}) format('woff');
+  }
+
+  @font-face {
+    font-family: "Cookierun Bold";
+    src: local("Cookierun Bold"), url(${CookieRun}) format('woff');
   }
 `;
 

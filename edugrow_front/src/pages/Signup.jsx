@@ -27,12 +27,11 @@ const Footer = styled.footer`
 
 const Title1 = styled.h1`
   margin-bottom: 0;
-  width: 111px;
   height: 48px;
 
-  font-family: "Mina Regular";
+  font-family: "Nexon Football Gothic B";
   font-weight: 400;
-  font-size: 30px;
+  font-size: 33px;
 
   color: #000;
 `;
@@ -135,9 +134,11 @@ const LineVert = styled(Line)`
 
 function Signup() {
   const [showDept, setShowDept] = useState(true);
+  const [checkId, setCheckId] = useState(false);
 
   const {
     register,
+    getValues,
     handleSubmit,
     formState: { isSubmitting, errors },
   } = useForm({ mode: "onChange" });
@@ -158,13 +159,12 @@ function Signup() {
         memberInfoStatus: showDept ? "Y" : "N",
         profileMessage: subject,
         profileImage: profileImg,
-        // * profileImage, memberInfoStatus
       })
       .then((response) => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.dir(error);
+        console.error(error);
       });
     alert("가입이 완료되었습니다.");
   };
@@ -172,6 +172,33 @@ function Signup() {
   const onCheckClick = () => {
     setShowDept((current) => !current);
     console.log(showDept);
+  };
+
+  // async function 확인
+  const handleCheckId = async () => {
+    const id = getValues("id");
+    console.log(id);
+    await axios
+      .get(baseUrl + `/api/members/id/${id}/exists`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleCheckName = async () => {
+    const name = getValues("name");
+    console.log(name);
+    await axios
+      .get(baseUrl + `/api/members/nickname/${name}/exists`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -204,7 +231,7 @@ function Signup() {
                   },
                 })}
               />
-              <SetBtn>
+              <SetBtn onClick={handleCheckId}>
                 <span>중복확인</span>
               </SetBtn>
               {errors.id && <Message role="alert">{errors.id.message}</Message>}

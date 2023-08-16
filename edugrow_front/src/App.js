@@ -6,6 +6,7 @@ import Ready from "./pages/Ready";
 import Mypage from "./pages/Mypage";
 import Stopwatch from "./pages/Stopwatch";
 import Signup from "./pages/Signup";
+import Building from "./pages/Building";
 import Footer from "./components/layout/Footer";
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
             <Route path="/mypage" element={<Mypage />} />
             <Route path="/stopwatch" element={<Stopwatch />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/building" element={<Building />} />
           </Routes>
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </div>
       </Layout>
     </BrowserRouter>

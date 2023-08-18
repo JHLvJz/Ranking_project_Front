@@ -1,15 +1,35 @@
 import styled from "styled-components";
 
+export const TopNavContainer = styled.div`
+  position: relative;
+  margin: 0;
+  height: 4vh;
+  text-align: center;
+  padding: 2%;
+  line-height: 4vh;
+  font-weight: 900;
+  font-size: 1.2em;
+`;
+
+export const InfoContainer = styled.div`
+  position: relative;
+  height: 24vh;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+`;
+
 export const HighContainer = styled.div`
-  background-color: yellow;
+  /* background-color: yellow; */
+
   position: relative;
   height: 180px;
-  margin: 0;
+  margin: 2vh 0 0 0;
   box-sizing: border-box;
 `;
 
 export const LeaContainer = styled.div`
-  background-color: beige;
+  /* background-color: beige; */
   position: relative;
   height: 160px;
   margin: 0;
@@ -17,7 +37,7 @@ export const LeaContainer = styled.div`
 `;
 
 export const ArchContainer = styled.div`
-  background-color: orange;
+  /* background-color: orange; */
   position: relative;
   height: 160px;
   margin: 0;
@@ -39,7 +59,7 @@ export const MedalBox = styled.div`
   right: 7%;
 
   /* max-width: 30%; */
-  width: 35%;
+  width: 40%;
   height: 40px;
 
   background: #233554;
@@ -68,11 +88,11 @@ export const BasicBox = styled.div`
   flex-direction: row;
 
   top: 13vh;
-  left: 55%;
+  left: 60%;
   margin-right: 0;
   padding-right: 0;
 
-  background-color: blue;
+  /* background-color: blue; */
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -117,6 +137,7 @@ export const ArchItem = styled.div`
   position: relative;
   width: 400px;
   height: 15vh;
+  margin: 2%;
 
   top: 0.3vh;
 `;
@@ -142,10 +163,10 @@ export const UnitBox = styled.div`
 
 export const HourBox = styled.div`
   position: absolute;
-  left: 20%;
+  left: 5%;
   top: 2vh;
 
-  width: 200%;
+  width: 90%;
   height: 70px;
 
   background: rgba(238, 238, 238, 0.51);

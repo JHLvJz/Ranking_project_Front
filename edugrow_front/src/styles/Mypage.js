@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const TopNavContainer = styled.div`
   position: relative;
   margin: 0;
@@ -45,40 +46,47 @@ export const ArchContainer = styled.div`
 `;
 
 export const MainText = styled.div`
+  margin-top: 40px;
   position: absolute;
-
-  left: 5vw;
-
+  font-family: "Mina Bold";
+  font-size: 25px;
   font-weight: 700;
-  font-size: 1.5em;
+
+  left: 60px;
 `;
 
 export const MedalBox = styled.div`
   position: absolute;
-  top: 1vh;
+  top: 40px;
   right: 7%;
 
   /* max-width: 30%; */
+
   width: 40%;
   height: 40px;
 
-  background: #233554;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 17px;
+  background: #eeeeee;
+  border: none;
+  border-radius: 5px;
+
+  font-family: "Mina Bold";
+  font-weight: 700;
+
+  cursor: pointer;
 `;
 
 export const ResultBox = styled.div`
   position: absolute;
-  top: 63%;
+  top: 173px;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
 
-  width: 80%;
-  height: 100px;
+  width: 342px;
+  height: 164px;
 
   background: #d34a4d;
   border: 1px solid #d34a4d;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 35px;
 `;
 
@@ -86,6 +94,7 @@ export const BasicBox = styled.div`
   position: absolute;
   display: flex;
   flex-direction: row;
+
 
   top: 13vh;
   left: 60%;
@@ -146,10 +155,10 @@ export const UnitBox = styled.div`
   position: relative;
   background: #eeeeee;
 
-  width: 60px;
-  height: 4.5vh;
+  width: 55px;
+  height: 30px;
 
-  font-weight: 700;
+  font-family: "Nexon Football Gothic B";
   font-size: 1em;
   line-height: 4.5vh;
   text-align: center;
@@ -159,10 +168,12 @@ export const UnitBox = styled.div`
   /* background-color: red; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  z-index: 2;
 `;
 
 export const HourBox = styled.div`
   position: absolute;
+
   left: 5%;
   top: 2vh;
 
@@ -172,4 +183,5 @@ export const HourBox = styled.div`
   background: rgba(238, 238, 238, 0.51);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  z-index: 1;
 `;

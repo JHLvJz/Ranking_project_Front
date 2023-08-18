@@ -1,24 +1,22 @@
 import styled from "styled-components";
 import Archive from "../components/Archive";
+import Footer from "../components/Footer";
 import Highlight from "../components/Highlight";
 import League from "../components/League";
-import MyProfile from "../components/MyProfile";
 
-const Title = styled.h1`
-  font-family: "Mina Bold";
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-`;
+import Topmypage from "../components/Topmypage";
+import UserInfo from "../components/UserInfo";
+import { InfoContainer } from "../styles/Mypage";
 
 function Mypage() {
   return (
     <>
-      <Title>My Page</Title>
-      <MyProfile />
+      <Topmypage />
+      <UserInfo />
       <Highlight />
       <League />
       <Archive />
+      <Footer />
     </>
   );
 }

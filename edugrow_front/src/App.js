@@ -10,6 +10,7 @@ import Building from "./pages/Building";
 import Ranking from "./pages/Ranking";
 import Footer from "./components/layout/Footer";
 import Rank from "./components/building/Rank";
+import Kakao from "./pages/Kakao";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <div className="App">
           <GlobalFonts />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Kakao />} />
             <Route path="/ready" element={<Ready />} />
             <Route path="/mypage" element={<Mypage />} />
             <Route path="/stopwatch" element={<Stopwatch />} />

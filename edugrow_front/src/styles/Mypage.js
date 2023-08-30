@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const TopNavContainer = styled.div`
+  box-sizing: border-box;
   position: relative;
   margin: 0;
-  height: 4vh;
+  height: 59px;
   text-align: center;
-  padding: 2%;
-  line-height: 4vh;
+  line-height: 59px;
+  font-family: "Mina Bold";
   font-weight: 900;
-  font-size: 1.2em;
+  font-size: 20px;
 `;
 
 export const InfoContainer = styled.div`
@@ -23,7 +24,7 @@ export const HighContainer = styled.div`
   /* background-color: yellow; */
 
   position: relative;
-  height: 180px;
+  height: fit-content;
   margin: 2vh 0 0 0;
   box-sizing: border-box;
 `;
@@ -45,12 +46,12 @@ export const ArchContainer = styled.div`
 `;
 
 export const MainText = styled.div`
-  position: absolute;
-
-  left: 5vw;
-
-  font-weight: 700;
-  font-size: 1.5em;
+  display: inline-block;
+  font-family: "Mina Bold";
+  margin-left: 30px;
+  vertical-align: middle;
+  font-weight: 900;
+  font-size: 23px;
 `;
 
 export const MedalBox = styled.div`
@@ -68,18 +69,27 @@ export const MedalBox = styled.div`
 `;
 
 export const ResultBox = styled.div`
-  position: absolute;
-  top: 63%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  position: relative;
 
   width: 80%;
-  height: 100px;
+  height: 164px;
+  margin: 10px auto;
 
   background: #d34a4d;
-  border: 1px solid #d34a4d;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 35px;
+`;
+
+export const ShareBtn = styled.button`
+  display: inline-block;
+  position: relative;
+  width: 35px;
+  height: 25px;
+  left: 15px;
+  background: #eeeeee;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const BasicBox = styled.div`

@@ -14,10 +14,10 @@ function Highlight() {
   return (
     <HighContainer>
       <MainText>하이라이트</MainText>
-      <ShareBtn>
-        <span>공유</span>
+      {/* <ShareBtn> */}
+      {/* <span>공유</span>
         <ShareImg src={ShareImgSrc}></ShareImg>
-      </ShareBtn>
+      </ShareBtn> */}
       <ResultBox />
     </HighContainer>
   );

@@ -1,10 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 import InterBlackItalic from "./Inter-BlackItalic.woff";
+import InterBlack from "./Inter-Black.woff";
 import MinaBold from "./Mina-Bold.woff";
 import MinaRegular from "./Mina-Regular.woff";
 import NotoSansLight from "./NotoSans-Light.woff";
 import NotoSansRegular from "./NotoSans-Regular.woff";
 import NexonFootballB from "./NEXON-Football-Gothic-B.woff";
+import NexonFootballL from "./NEXON-Football-Gothic-L.woff";
 import CookieRun from "./CookieRun-Bold.woff";
 
 const GlobalFonts = createGlobalStyle`
@@ -12,6 +14,11 @@ const GlobalFonts = createGlobalStyle`
     font-family: "Inter Black Italic";
     src: local("Inter Black Italic"), url(${InterBlackItalic}) format('woff');
   } // 정확한 원리
+
+  @font-face {
+    font-family: "Inter Black";
+    src: local("Inter Black"), url(${InterBlack}) format('woff');
+  }
 
   @font-face {
     font-family: "Mina Bold";
@@ -37,6 +44,11 @@ const GlobalFonts = createGlobalStyle`
   @font-face {
     font-family: "Nexon Football Gothic B";
     src: local("Nexon Football Gothic B"), url(${NexonFootballB}) format('woff');
+  }
+
+  @font-face {
+    font-family: "Nexon Football Gothic L";
+    src: local("Nexon Football Gothic L"), url(${NexonFootballL}) format('woff');
   }
 
   @font-face {

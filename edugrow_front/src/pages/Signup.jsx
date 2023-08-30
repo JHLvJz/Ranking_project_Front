@@ -1,11 +1,12 @@
 import { Input, InputBox, SetBtn, Join, AddFile } from "../styles/Signup";
+import Select from "../components/signup/Select";
 import styled from "styled-components";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const Wrapper = styled.div`
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   height: 100vh;
   max-width: 768px;
@@ -338,6 +339,7 @@ function Signup() {
                 <Message role="alert">{errors.dept.message}</Message>
               )}
             </InputBox>
+            <Select list={["사범대학", "정보대학"]}></Select>
             <Label htmlFor="subject">공부영역 (optional)</Label>
             <InputBox>
               <Input

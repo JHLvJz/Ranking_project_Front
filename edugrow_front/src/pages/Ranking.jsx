@@ -3,7 +3,7 @@ import Board from "../components/ranking/Board";
 import Select from "../components/ranking/Select";
 
 const Background = styled.div`
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   min-height: 100vh;
   background-color: #233554;

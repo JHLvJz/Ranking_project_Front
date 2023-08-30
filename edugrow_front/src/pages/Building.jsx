@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Name from "../components/building/Name";
@@ -18,7 +18,7 @@ const BackBtn = styled.button`
 `;
 
 const Background = styled.div`
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   min-height: calc(100vh - 100px);
   background-color: rgb(81, 122, 154);
@@ -43,6 +43,8 @@ const FooterBox = styled.div`
 
 function Building() {
   const navigate = useNavigate();
+  useEffect(() => console.log("building render"));
+
   return (
     <Background>
       <BackBtn onClick={() => navigate(-1)}>

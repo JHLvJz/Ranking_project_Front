@@ -1,50 +1,52 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const MenuContainer = styled.div`
+  position: fixed;
+  bottom: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: azure;
-  width: 100%;
-  height: 12vh;
+  background-color: white;
+  width: 430px; // position fixed 설정하면 width 100% 문제 생김
+  height: 82px;
 
   border-top: 1px solid rgba(0, 0, 0, 0.25);
 `;
 const MenuItem = styled.div`
-  width: 20%;
-  height: 10vh;
+  height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-top: 0.4vh;
+  padding: 5px;
+  justify-content: space-around;
+  cursor: pointer;
 `;
 
 const MenuIcon = styled.img`
-  width: 50%;
-  height: 5vh;
-  margin: 0 auto;
+  height: 40px;
+  width: auto;
+  margin: auto;
 `;
 
-const MenuText = styled.p`
-  font-family: "Inter";
+const MenuText = styled.span`
+  font-family: "Inter Regular";
   font-style: normal;
   font-weight: 400;
   font-size: 1em;
-  margin-top: 0.5vh;
   text-align: center;
-
   color: rgba(0, 0, 0, 0.4);
 `;
 
 function Footer() {
+  const navigate = useNavigate();
   return (
     <MenuContainer>
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/")}>
         <MenuIcon src="/img/mapicon.png" />
         <MenuText>홈</MenuText>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/ranking")} v>
         <MenuIcon src="/img/charticon.png" />
         <MenuText>랭킹</MenuText>
       </MenuItem>
@@ -52,7 +54,11 @@ function Footer() {
         <MenuIcon src="/img/runicon.png" />
         <MenuText>공부</MenuText>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/planner")}>
+        <MenuIcon />
+        <MenuText>플래너</MenuText>
+      </MenuItem>
+      <MenuItem onClick={() => navigate("/mypage")}>
         <MenuIcon src="/img/profileicon.png" />
         <MenuText>활동</MenuText>
       </MenuItem>

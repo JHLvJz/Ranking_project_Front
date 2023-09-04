@@ -8,14 +8,22 @@ import Topmypage from "../components/Topmypage";
 import UserInfo from "../components/UserInfo";
 import { InfoContainer } from "../styles/Mypage";
 
+const Wrapper = styled.div`
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 82px;
+`;
+
 function Mypage() {
   return (
     <>
-      <Topmypage />
-      <UserInfo />
-      <Highlight />
-      <League />
-      <Archive />
+      <Wrapper>
+        <Topmypage />
+        <UserInfo />
+        <Highlight />
+        <League />
+        <Archive />
+      </Wrapper>
       <Footer />
     </>
   );

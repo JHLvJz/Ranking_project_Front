@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 280px;
-  top: 128px;
-
   position: relative;
+  top: -25px;
   display: flex;
   justify-content: space-around;
   left: 10px;

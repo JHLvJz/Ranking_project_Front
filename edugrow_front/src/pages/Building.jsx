@@ -6,6 +6,7 @@ import Mytime from "../components/building/Mytime";
 import Rank from "../components/building/Rank";
 import BuildingInfo from "../components/building/BuildingInfo";
 import BackImg from "../img/Back.png";
+import Footer from "../components/Footer";
 
 const BackBtn = styled.button`
   all: unset;
@@ -20,7 +21,9 @@ const BackBtn = styled.button`
 const Background = styled.div`
   /* position: absolute; */
   width: 100%;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 82px);
+  height: 100%;
+  padding-bottom: 82px;
   background-color: rgb(81, 122, 154);
   background-attachment: fixed;
   background-size: cover;
@@ -46,16 +49,20 @@ function Building() {
   useEffect(() => console.log("building render"));
 
   return (
-    <Background>
-      <BackBtn onClick={() => navigate(-1)}>
-        <img src={BackImg} width={"20px"} />
-      </BackBtn>
-      <Name></Name>
-      <Mytime time={5000} />
-      <Rank myRank={10} prevTime={100} nextTime={50} />
-      <BuildingInfo></BuildingInfo>
-      <FooterBox />
-    </Background>
+    <>
+      {" "}
+      <Background>
+        <BackBtn onClick={() => navigate(-1)}>
+          <img src={BackImg} width={"20px"} />
+        </BackBtn>
+        <Name></Name>
+        <Mytime time={5000} />
+        <Rank myRank={10} prevTime={100} nextTime={50} />
+        <BuildingInfo></BuildingInfo>
+        <FooterBox />
+      </Background>
+      <Footer />
+    </>
   );
 }
 

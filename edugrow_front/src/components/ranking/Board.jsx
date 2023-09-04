@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import Rank from "./RankItem";
+import Select from "./Select";
 import { rankList } from "../../SampleData";
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: relative;
   display: block;
-  top: 250px;
+  top: 200px;
   width: 100%;
-  height: calc(100vh - 327px); // 전체 뷰포트 - 상단 공간 - footer
+  height: calc(100vh - 382px); // 수정 필요
   background-color: white;
 `;
 
 const Text = styled.p`
   position: relative;
+  top: -25px;
   margin: 15px;
   font-family: "Nexon lv1";
   font-weight: 400;
@@ -23,8 +25,9 @@ const Text = styled.p`
 
 const Rankings = styled.div`
   position: relative;
+  top: -25px;
+  height: calc(100% - 82px);
   display: flex;
-  height: calc(100% - 45.99px);
   overflow-y: scroll;
 `;
 
@@ -42,6 +45,7 @@ export default function Board() {
 
   return (
     <Wrapper>
+      <Select />
       <Text>7/23 ~ 7/29 주간 랭킹</Text>
       <Rankings>
         <Ul>

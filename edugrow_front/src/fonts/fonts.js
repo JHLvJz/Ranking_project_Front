@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import InterBlackItalic from "./Inter-BlackItalic.woff";
 import InterBlack from "./Inter-Black.woff";
+import InterRegular from "./Inter-Regular.woff";
 import MinaBold from "./Mina-Bold.woff";
 import MinaRegular from "./Mina-Regular.woff";
 import NotoSansLight from "./NotoSans-Light.woff";
@@ -18,6 +19,11 @@ const GlobalFonts = createGlobalStyle`
   @font-face {
     font-family: "Inter Black";
     src: local("Inter Black"), url(${InterBlack}) format('woff');
+  }
+
+  @font-face {
+    font-family: "Inter Regular";
+    src: local("Inter Regular"), url(${InterRegular}) format('woff');
   }
 
   @font-face {

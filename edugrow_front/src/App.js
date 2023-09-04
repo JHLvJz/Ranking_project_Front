@@ -8,6 +8,7 @@ import Stopwatch from "./pages/Stopwatch";
 import Signup from "./pages/Signup";
 import Building from "./pages/Building";
 import Ranking from "./pages/Ranking";
+import Planner from "./pages/Planner";
 import Footer from "./components/layout/Footer";
 import Rank from "./components/building/Rank";
 import Kakao from "./pages/Kakao";
@@ -26,6 +27,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/building" element={<Building />} />
             <Route path="/ranking" element={<Ranking />} />
+            <Route path="/planner" element={<Planner />} />
           </Routes>
           {/* <Footer></Footer> */}
         </div>

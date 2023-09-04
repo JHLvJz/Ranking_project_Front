@@ -10,34 +10,18 @@ import {
 function League() {
   return (
     <LeaContainer>
-      <MainText>내 리그</MainText>
+      <MainText>활동뱃지</MainText>
 
       <BasicBox>
-        <ArchItem>
-          <LeaItem lock="on">
-            <LeaItemLogo lock="on" src="/img/lock.png" />
-          </LeaItem>
-        </ArchItem>
-        <ArchItem>
-          <LeaItem>
-            <LeaItemLogo src="/img/2.png" />
-          </LeaItem>
-        </ArchItem>
-        <ArchItem>
-          <LeaItem>
-            <LeaItemLogo src="/img/2.png" />
-          </LeaItem>
-        </ArchItem>
-        <ArchItem>
-          <LeaItem>
-            <LeaItemLogo src="/img/2.png" />
-          </LeaItem>
-        </ArchItem>
-        <ArchItem>
-          <LeaItem>
-            <LeaItemLogo src="/img/2.png" />
-          </LeaItem>
-        </ArchItem>
+        <LeaItem lock="on">
+          <LeaItemLogo lock="on" src="/img/lock.png" />
+        </LeaItem>
+        <LeaItem>
+          <LeaItemLogo src="/img/2.png" />
+        </LeaItem>
+        <LeaItem>
+          <LeaItemLogo src="/img/2.png" />
+        </LeaItem>
       </BasicBox>
     </LeaContainer>
   );

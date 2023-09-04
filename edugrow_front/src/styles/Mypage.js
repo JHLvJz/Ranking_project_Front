@@ -32,15 +32,14 @@ export const HighContainer = styled.div`
 export const LeaContainer = styled.div`
   /* background-color: beige; */
   position: relative;
-  height: 160px;
-  margin: 0;
+  margin-top: 20px;
   box-sizing: border-box;
 `;
 
 export const ArchContainer = styled.div`
   /* background-color: orange; */
   position: relative;
-  height: 160px;
+  height: fit-content;
   margin: 0;
   box-sizing: border-box;
 `;
@@ -93,20 +92,22 @@ export const ShareBtn = styled.button`
 `;
 
 export const BasicBox = styled.div`
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: row;
 
-  top: 13vh;
+  /* top: 13vh;
   left: 60%;
   margin-right: 0;
-  padding-right: 0;
+  padding-right: 0; */
 
   /* background-color: blue; */
-  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 80%;
   overflow-x: scroll;
   overflow-y: hidden;
-  transform: translate(-50%, -50%);
 
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */
@@ -120,10 +121,10 @@ export const BasicBox = styled.div`
 // background값과 가운데 img값 다르게 주기 (props로 렌더링) -> img src는 jsx에서 처리
 export const LeaItem = styled.div`
   position: relative;
+  margin: auto;
   top: 0;
   width: 80px;
-  height: 12vh;
-  margin-right: 20px;
+  height: 79px;
   border-radius: 5px 5px 40px 40px;
 
   background-color: ${(props) =>
@@ -145,8 +146,8 @@ export const LeaItemLogo = styled.img`
 
 export const ArchItem = styled.div`
   position: relative;
-  width: 400px;
-  height: 15vh;
+  width: 140px;
+  height: 125px;
   margin: 2%;
 
   top: 0.3vh;
@@ -159,8 +160,9 @@ export const UnitBox = styled.div`
   width: 60px;
   height: 4.5vh;
 
+  font-family: "Nexon Football Gothic L";
   font-weight: 700;
-  font-size: 1em;
+  font-size: 17px;
   line-height: 4.5vh;
   text-align: center;
 
@@ -176,8 +178,8 @@ export const HourBox = styled.div`
   left: 5%;
   top: 2vh;
 
-  width: 90%;
-  height: 70px;
+  width: 123px;
+  height: 101px;
 
   background: rgba(238, 238, 238, 0.51);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

@@ -8,7 +8,9 @@ const Wrapper = styled.div`
   display: block;
   top: 200px;
   width: 100%;
-  height: calc(100vh - 382px); // 수정 필요
+  min-height: 400px;
+  height: calc(100% - 312px); // 100% - 상위 요소(h1)가 차지하는 영역
+  padding-bottom: 82px;
   background-color: white;
 `;
 

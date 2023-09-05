@@ -6,8 +6,8 @@ import Footer from "../components/Footer";
 const Background = styled.div`
   /* position: absolute; */
   width: 100%;
-  height: auto;
-  min-height: 100%;
+  min-height: calc(100vh - 82px);
+  height: calc(100vh - 82px);
   padding-bottom: 82px;
   background-color: #233554;
   background-attachment: fixed;

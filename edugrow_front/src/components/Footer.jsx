@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const MenuContainer = styled.div`
+  box-sizing: border-box;
   position: fixed;
   bottom: 0;
   display: flex;

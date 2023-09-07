@@ -1,16 +1,16 @@
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 import Rank from "./RankItem";
 import Select from "./Select";
-import { rankList } from "../../SampleData";
+import { rankList, buildingList } from "../../SampleData";
 
 const Wrapper = styled.div`
   position: relative;
   display: block;
-  top: 200px;
+  top: 50px;
   width: 100%;
   min-height: 400px;
-  height: calc(100% - 312px); // 100% - 상위 요소(h1)가 차지하는 영역
-  padding-bottom: 82px;
+  height: calc(100% - 250px); // 100% - 위에서 차지하는 영역
   background-color: white;
 `;
 
@@ -40,15 +40,24 @@ const Ul = styled.ul`
   margin: 0;
 `;
 
-export default function Board() {
-  // 상위에서 받을 props: 랭킹 유형, 기간, 장소
+export default function Board({ place }) {
+  const [period, setPeriod] = useState(0);
+  const periodList = ["주간", "월간", "전체"];
+
+  useEffect(() => {
+    console.log(periodList[period], buildingList[place].name);
+  }, [period, place]);
+  // 기간 state: 초기에는 0 = 주간 랭킹, 하위 컴포넌트 select에서 수정
+  // 실제 기간은 어떻게 표시할지?
+
+  // 상위에서 받을 props: 랭킹 장소
   // props에 맞춰 api 호출, array 반환 받기
   // 페이지네이션 공부해서 적용
 
   return (
     <Wrapper>
-      <Select />
-      <Text>7/23 ~ 7/29 주간 랭킹</Text>
+      <Select period={period} setPeriod={setPeriod} />
+      <Text>7/23 ~ 7/29 {periodList[period]} 랭킹</Text>
       <Rankings>
         <Ul>
           {rankList.map((rank) => (

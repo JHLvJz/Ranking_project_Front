@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { useState } from "react";
 import Board from "../components/ranking/Board";
-import Select from "../components/ranking/Select";
 import Footer from "../components/Footer";
+import BuildingSelect from "../components/ranking/BuildingSelect";
+import buildingList from "../SampleData";
 
 const Background = styled.div`
   /* position: absolute; */
@@ -21,7 +23,7 @@ const Title = styled.h1`
   font-size: 35px;
   line-height: 50px;
   text-align: center;
-  margin: 30px 0px 30px 0px;
+  margin: 10px 0px 30px 0px;
   color: #ffffff;
 `;
 
@@ -31,13 +33,15 @@ const Name = styled(Title)`
 `;
 
 export default function Ranking() {
+  const [place, setPlace] = useState(0);
   return (
     <>
       <Background>
+        <BuildingSelect place={place} setPlace={setPlace} />
         <Title>
-          <Name>중앙광장</Name> 리그
+          <Name as={"span"}>{buildingList[place].name}</Name> 리그
         </Title>
-        <Board />
+        <Board place={place} />
       </Background>
       <Footer />
     </>

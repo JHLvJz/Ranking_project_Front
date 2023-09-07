@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Date from "../components/planner/Date";
+import Chart from "../components/planner/Chart";
 import Footer from "../components/Footer";
 
 const Background = styled.div`
@@ -29,6 +30,7 @@ export default function Planner() {
       <Background>
         <Date />
         <Time>08 : 23 : 39</Time>
+        <Chart />
       </Background>
       <Footer />
     </>

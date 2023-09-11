@@ -1,3 +1,12 @@
+export const CollegeList = ["사범대학", "문과대학", "정보대학", "이과대학"];
+export const DeptList = [
+  "교육학과",
+  "가정교육과",
+  "수학교육과",
+  "국어교육과",
+  "영어교육과",
+];
+
 export const rankList = [
   {
     memberId: 1,

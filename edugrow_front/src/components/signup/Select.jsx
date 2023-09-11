@@ -4,18 +4,15 @@ const SelectBox = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   display: block;
+  border: none;
   position: relative;
   box-sizing: border-box;
 
-  margin-top: 6px;
-  margin-bottom: 31px;
-  height: 49px;
-  width: 313px;
-
-  border: 2px solid #b1b1b1;
-  border-radius: 10px;
-  background: #ffffff;
-  padding-left: 9px;
+  position: relative;
+  top: 8px;
+  left: 9px;
+  height: 30px;
+  width: ${({ button }) => (button ? "214px" : "291px")};
 
   font-family: "Noto Sans";
   font-weight: 400;
@@ -23,9 +20,9 @@ const SelectBox = styled.select`
   color: #000;
 `;
 
-export default function Select({ list }) {
+export default function Select({ list, button }) {
   return (
-    <SelectBox>
+    <SelectBox button={button}>
       {list.map((item, idx) => (
         <option value={idx}>{item}</option>
       ))}

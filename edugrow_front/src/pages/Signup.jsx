@@ -1,12 +1,19 @@
-import { Input, InputBox, SetBtn, Join, AddFile } from "../styles/Signup";
+import {
+  Input,
+  InputBox,
+  SetBtn,
+  Join,
+  Validate,
+  AddFile,
+} from "../styles/Signup";
 import Select from "../components/signup/Select";
 import styled from "styled-components";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { DeptList, CollegeList } from "../SampleData";
 
 const Wrapper = styled.div`
-  /* position: absolute; */
   width: 100%;
   height: 100vh;
   max-width: 768px;
@@ -28,11 +35,12 @@ const Footer = styled.footer`
 
 const Title1 = styled.h1`
   margin-bottom: 0;
+  width: 111px;
   height: 48px;
 
-  font-family: "Nexon Football Gothic B";
+  font-family: "Mina Regular";
   font-weight: 400;
-  font-size: 33px;
+  font-size: 30px;
 
   color: #000;
 `;
@@ -136,11 +144,15 @@ const LineVert = styled(Line)`
 function Signup() {
   const [showDept, setShowDept] = useState(true);
   const [checkId, setCheckId] = useState(false);
+  const [checkName, setCheckName] = useState(false);
+  const [checkMail, setCheckMail] = useState(false);
+  const [putMail, setPutMail] = useState(false);
 
   const {
     register,
     getValues,
     handleSubmit,
+    trigger,
     formState: { isSubmitting, errors },
   } = useForm({ mode: "onChange" });
   const baseUrl = "http://localhost:8080";
@@ -148,21 +160,31 @@ function Signup() {
   const onSubmit = (data) => {
     const { id, password, name, mail, college, dept, subject, profileImg } =
       data;
-    console.log(data);
+    console.log({
+      userId: id,
+      email: mail,
+      password: password,
+      nickname: name,
+      collegeName: college,
+      departmentName: dept,
+      memberInfoStatus: showDept ? "Y" : "N",
+      profileMessage: subject,
+      // profileImage: null,
+    });
     axios
       .post(baseUrl + "/api/members", {
         userId: id,
         email: mail,
         password: password,
-        nickname: name,
+        nickName: name,
         collegeName: college,
         departmentName: dept,
         memberInfoStatus: showDept ? "Y" : "N",
         profileMessage: subject,
-        profileImage: profileImg,
+        // profileImage: profileImg,
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
       })
       .catch((error) => {
         console.error(error);
@@ -177,12 +199,19 @@ function Signup() {
 
   // async function 확인
   const handleCheckId = async () => {
-    const id = getValues("id");
-    console.log(id);
+    trigger("id");
+    const userId = getValues("id");
+    console.log(userId);
     await axios
-      .get(baseUrl + `/api/members/id/${id}/exists`)
+      .get(baseUrl + `/api/members/id/${userId}/exists`)
       .then((response) => {
         console.log(response);
+        if (response.data === false) {
+          alert("사용 가능한 아이디입니다.");
+          setCheckId(true);
+        } else {
+          alert("이미 존재하는 아이디입니다.");
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -191,11 +220,54 @@ function Signup() {
 
   const handleCheckName = async () => {
     const name = getValues("name");
+    trigger("name");
     console.log(name);
     await axios
       .get(baseUrl + `/api/members/nickname/${name}/exists`)
       .then((response) => {
         console.log(response);
+        if (response.data === false) {
+          alert("사용 가능한 닉네임입니다.");
+          setCheckName(true);
+        } else {
+          alert("이미 존재하는 닉네임입니다.");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleCheckMail = async (e) => {
+    const valid = getValues("auth");
+    const mail = getValues("mail");
+    console.log([valid, mail]);
+    await axios
+      .post(baseUrl + `/api/mails/${mail}/check`, { authCode: valid })
+      .then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+          setCheckMail(true);
+          alert(response.data.message);
+        } else {
+          // 인증번호 틀린 경우
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleMailValid = async (e) => {
+    e.preventDefault();
+    const mail = getValues("mail");
+    trigger("mail");
+    console.log(mail);
+    await axios
+      .post(baseUrl + `/api/mails/${mail}`)
+      .then((response) => {
+        console.log(response);
+        setPutMail(true);
       })
       .catch((error) => {
         console.error(error);
@@ -276,7 +348,7 @@ function Signup() {
                   required: "닉네임을 입력해 주세요.",
                 })}
               />
-              <SetBtn>
+              <SetBtn onClick={handleCheckName}>
                 <span>중복확인</span>
               </SetBtn>
               {errors.name && (
@@ -294,6 +366,7 @@ function Signup() {
                 size="Url"
                 id="mail"
                 name="mail"
+                onChange={() => setPutMail(false)}
                 {...register("mail", {
                   required: "메일 주소를 입력해 주세요.",
                 })}
@@ -303,27 +376,31 @@ function Signup() {
                 <Message role="alert">{errors.mail.message}</Message>
               )}
             </InputBox>
+            <Validate onClick={handleMailValid}>메일 인증하기</Validate>
+            {putMail && (
+              <InputBox>
+                <Input
+                  type="text"
+                  size="Button"
+                  id="mailValid"
+                  name="mailValid"
+                  placeholder="인증번호를 입력해 주세요."
+                  {...register("auth", {
+                    required: "메일 인증을 진행해 주세요.",
+                  })}
+                />
+                <SetBtn onClick={handleCheckMail}>
+                  <span>인증하기</span>
+                </SetBtn>
+              </InputBox>
+            )}
             <Label htmlFor="college">단과대학</Label>
             <InputBox error={errors.college}>
-              <Input
-                type="text"
-                id="college"
-                name="college"
-                {...register("college")}
-              />
-              {errors.college && (
-                <Message role="alert">{errors.college.message}</Message>
-              )}
+              <Select list={CollegeList} button={false} />
             </InputBox>
             <Label htmlFor="dept">학과</Label>
             <InputBox error={errors.dept}>
-              <Input
-                type="text"
-                className="withBtn"
-                id="dept"
-                name="dept"
-                {...register("dept")}
-              />
+              <Select list={DeptList} button={true} />
               <SetBtn htmlFor="showDept">
                 <ShowDept
                   type="checkbox"
@@ -335,11 +412,7 @@ function Signup() {
                   {showDept ? "공개" : "비공개"}
                 </span>
               </SetBtn>
-              {errors.dept && (
-                <Message role="alert">{errors.dept.message}</Message>
-              )}
             </InputBox>
-            <Select list={["사범대학", "정보대학"]}></Select>
             <Label htmlFor="subject">공부영역 (optional)</Label>
             <InputBox>
               <Input

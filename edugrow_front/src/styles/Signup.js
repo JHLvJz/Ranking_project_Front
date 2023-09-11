@@ -109,6 +109,27 @@ export const Join = styled.input`
   }
 `;
 
+export const Validate = styled.button`
+  position: relative;
+  margin-bottom: 25px;
+
+  width: 313px;
+  height: 49px;
+  border: none;
+  border-radius: 10px;
+  background: #d34a4d;
+
+  font-weight: 400;
+  font-size: 15;
+  color: white;
+
+  cursor: pointer;
+
+  &:disabled {
+    background: #b1b1b1;
+  }
+`;
+
 export const AddFile = styled.span`
   display: block;
   position: relative;

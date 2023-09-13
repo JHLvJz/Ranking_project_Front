@@ -1,3 +1,5 @@
+export const baseUrl = "http://localhost:8080";
+
 export const CollegeList = ["사범대학", "문과대학", "정보대학", "이과대학"];
 export const DeptList = [
   "교육학과",
@@ -70,30 +72,35 @@ export const buildingList = [
   {
     id: 1,
     name: "운초우선교육관",
+    api: "education-hall",
     lat: 37.591584,
     lng: 127.034381,
   },
   {
     id: 2,
     name: "백주년기념삼성관",
+    api: "memorial-hall",
     lat: 37.589553,
     lng: 127.034358,
   },
   {
     id: 3,
     name: "중앙도서관",
+    api: "central-library",
     lat: 37.590814,
     lng: 127.034115,
   },
   {
     id: 4,
     name: "하나스퀘어",
+    api: "hana-square",
     lat: 37.584919,
     lng: 127.025963,
   },
   {
     id: 5,
     name: "과학도서관",
+    api: "science-library",
     lat: 37.584631,
     lng: 127.026541,
   },

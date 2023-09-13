@@ -11,7 +11,7 @@ import styled from "styled-components";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { DeptList, CollegeList } from "../SampleData";
+import { DeptList, CollegeList, baseUrl } from "../SampleData";
 
 const Wrapper = styled.div`
   width: 100%;

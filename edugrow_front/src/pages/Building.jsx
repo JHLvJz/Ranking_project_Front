@@ -61,7 +61,7 @@ function Building() {
         <BuildingInfo></BuildingInfo>
         <FooterBox />
       </Background>
-      <Footer />
+      <Footer chosen={-1} />
     </>
   );
 }

@@ -32,7 +32,7 @@ export default function Planner() {
         <Time>08 : 23 : 39</Time>
         <Chart />
       </Background>
-      <Footer />
+      <Footer chosen={3} />
     </>
   );
 }

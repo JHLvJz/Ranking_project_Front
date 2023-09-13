@@ -28,6 +28,9 @@ const MenuIcon = styled.img`
   height: 40px;
   width: auto;
   margin: auto;
+  ${({ highlight }) =>
+    highlight &&
+    "filter: invert(49%) sepia(40%) saturate(805%) hue-rotate(309deg) brightness(60%) contrast(115%);"}
 `;
 
 const MenuText = styled.span`
@@ -36,32 +39,34 @@ const MenuText = styled.span`
   font-weight: 400;
   font-size: 1em;
   text-align: center;
-  color: rgba(0, 0, 0, 0.4);
+  color: ${({ highlight }) =>
+    highlight ? "rgba(211, 74, 77, 0.8)" : "rgba(0, 0, 0, 0.4)"};
 `;
 
-function Footer() {
+function Footer({ chosen }) {
   const navigate = useNavigate();
+  console.log(chosen === 1);
   return (
     <MenuContainer>
       <MenuItem onClick={() => navigate("/")}>
-        <MenuIcon src="/img/mapicon.png" />
-        <MenuText>홈</MenuText>
+        <MenuIcon src="/img/mapicon.png" highlight={chosen === 0} />
+        <MenuText highlight={chosen === 0}>홈</MenuText>
       </MenuItem>
-      <MenuItem onClick={() => navigate("/ranking")} v>
-        <MenuIcon src="/img/charticon.png" />
-        <MenuText>랭킹</MenuText>
+      <MenuItem onClick={() => navigate("/ranking")}>
+        <MenuIcon src="/img/charticon.png" highlight={chosen === 1} />
+        <MenuText highlight={chosen === 1}>랭킹</MenuText>
       </MenuItem>
       <MenuItem>
-        <MenuIcon src="/img/runicon.png" />
-        <MenuText>공부</MenuText>
+        <MenuIcon src="/img/runicon.png" highlight={chosen === 2} />
+        <MenuText highlight={chosen === 2}>공부</MenuText>
       </MenuItem>
       <MenuItem onClick={() => navigate("/planner")}>
-        <MenuIcon />
-        <MenuText>플래너</MenuText>
+        <MenuIcon highlight={chosen === 3} />
+        <MenuText highlight={chosen === 3}>플래너</MenuText>
       </MenuItem>
       <MenuItem onClick={() => navigate("/mypage")}>
-        <MenuIcon src="/img/profileicon.png" />
-        <MenuText>활동</MenuText>
+        <MenuIcon src="/img/profileicon.png" highlight={chosen === 4} />
+        <MenuText highlight={chosen === 4}>활동</MenuText>
       </MenuItem>
     </MenuContainer>
   );

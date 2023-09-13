@@ -24,7 +24,7 @@ function Mypage() {
         <League />
         <Archive />
       </Wrapper>
-      <Footer />
+      <Footer chosen={4} />
     </>
   );
 }

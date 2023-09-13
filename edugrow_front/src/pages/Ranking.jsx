@@ -43,7 +43,7 @@ export default function Ranking() {
         </Title>
         <Board place={place} />
       </Background>
-      <Footer />
+      <Footer chosen={1} />
     </>
   );
 }

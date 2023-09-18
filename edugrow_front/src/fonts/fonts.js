@@ -65,7 +65,17 @@ const GlobalFonts = createGlobalStyle`
   @font-face {
     font-family: 'Nexon lv1';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
-}
+  }
+
+  @font-face {
+    font-family: "jsMath";
+    src: url("https://db.onlinewebfonts.com/t/531ac7fc6c0a0f38e9a90ec916b18735.eot");
+    src: url("https://db.onlinewebfonts.com/t/531ac7fc6c0a0f38e9a90ec916b18735.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/531ac7fc6c0a0f38e9a90ec916b18735.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/531ac7fc6c0a0f38e9a90ec916b18735.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/531ac7fc6c0a0f38e9a90ec916b18735.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/531ac7fc6c0a0f38e9a90ec916b18735.svg#jsMath-cmbx10")format("svg");
+  }
 `;
 
 export default GlobalFonts;

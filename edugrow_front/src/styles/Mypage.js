@@ -123,25 +123,12 @@ export const LeaItem = styled.div`
   position: relative;
   margin: auto;
   top: 0;
-  width: 80px;
-  height: 79px;
-  border-radius: 5px 5px 40px 40px;
-
-  background-color: ${(props) =>
-    props.lock === "on" ? "rgba(177, 177, 177, 0.25)" : "#233554"};
 `;
 
 export const LeaItemLogo = styled.img`
-  width: ${(props) => (props.lock === "on" ? "20%" : "27%")};
-  height: ${(props) => (props.lock === "on" ? "20%" : "28%")};
-
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  filter: ${(props) =>
-    props.lock === "on" ? "none" : "brightness(0) invert(1)"};
+  width: 110px;
+  height: auto;
+  position: relative;
 `;
 
 export const ArchItem = styled.div`
@@ -158,7 +145,7 @@ export const UnitBox = styled.div`
   background: #eeeeee;
 
   width: 60px;
-  height: 4.5vh;
+  height: 35px;
 
   font-family: "Nexon Football Gothic L";
   font-weight: 700;
@@ -184,4 +171,5 @@ export const HourBox = styled.div`
   background: rgba(238, 238, 238, 0.51);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  z-index: 0;
 `;

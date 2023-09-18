@@ -30,17 +30,17 @@ const MenuIcon = styled.img`
   margin: auto;
   ${({ highlight }) =>
     highlight &&
-    "filter: invert(49%) sepia(40%) saturate(805%) hue-rotate(309deg) brightness(60%) contrast(115%);"}
+    "filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(21deg) brightness(97%) contrast(103%);"}
 `;
 
 const MenuText = styled.span`
   font-family: "Inter Regular";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${({ highlight }) => (highlight ? "700" : "400")};
   font-size: 1em;
   text-align: center;
   color: ${({ highlight }) =>
-    highlight ? "rgba(211, 74, 77, 0.8)" : "rgba(0, 0, 0, 0.4)"};
+    highlight ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0.4)"};
 `;
 
 function Footer({ chosen }) {

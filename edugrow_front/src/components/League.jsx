@@ -8,20 +8,23 @@ import {
 } from "../styles/Mypage";
 
 function League() {
+  const badgeList = [
+    { name: "medal", src: `/img/badges/badge1.png` },
+    { name: "medal", src: `/img/badges/badge1.png` },
+    { name: "medal", src: `/img/badges/badge1.png` },
+  ];
   return (
     <LeaContainer>
       <MainText>활동뱃지</MainText>
-
       <BasicBox>
-        <LeaItem lock="on">
-          <LeaItemLogo lock="on" src="/img/lock.png" />
-        </LeaItem>
-        <LeaItem>
-          <LeaItemLogo src="/img/2.png" />
-        </LeaItem>
-        <LeaItem>
-          <LeaItemLogo src="/img/2.png" />
-        </LeaItem>
+        {badgeList.map((badge) => {
+          const imgSrc = false ? badge.src : `/img/badges/lockbadge.png`;
+          return (
+            <LeaItem>
+              <LeaItemLogo src={imgSrc} />
+            </LeaItem>
+          );
+        })}
       </BasicBox>
     </LeaContainer>
   );

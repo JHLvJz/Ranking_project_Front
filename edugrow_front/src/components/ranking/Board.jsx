@@ -51,8 +51,6 @@ export default function Board({ place }) {
     { name: "전체", api: "total" },
   ];
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     async function FetchData() {
       const Url =

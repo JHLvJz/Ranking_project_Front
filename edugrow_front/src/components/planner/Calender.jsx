@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
 const Btn = styled.button`
   border: 0;
   background-color: transparent;
+  cursor: pointer;
 `;
 
 const Img = styled.img`
@@ -34,17 +36,38 @@ const Text = styled.span`
   color: white;
 `;
 
-export default function Date() {
+export default function Calender({ day, setDay }) {
+  function handleMinus() {
+    setDay((prev) => {
+      const newDate = prev.date;
+      newDate.setDate(prev.date.getDate() - 1);
+      return { date: newDate };
+    });
+  }
+
+  function handlePlus() {
+    setDay((prev) => {
+      const newDate = prev.date;
+      newDate.setDate(prev.date.getDate() + 1);
+      return { date: newDate };
+    });
+  }
+
   return (
     <Wrapper>
       <Title>스터디 플래너</Title>
-      <Btn>
+      <Btn onClick={handleMinus}>
         <Img src="/img/left.png" />
       </Btn>
       <Btn>
-        <Text>2023년 9월 4일</Text>
+        {
+          <Text>
+            {day.date.getFullYear()}년 {day.date.getMonth() + 1}월{" "}
+            {day.date.getDate()}일
+          </Text>
+        }
       </Btn>
-      <Btn>
+      <Btn onClick={handlePlus}>
         <Img src="/img/right.png" />
       </Btn>
     </Wrapper>

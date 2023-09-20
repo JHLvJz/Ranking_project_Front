@@ -45,7 +45,6 @@ const MenuText = styled.span`
 
 function Footer({ chosen }) {
   const navigate = useNavigate();
-  console.log(chosen === 1);
   return (
     <MenuContainer>
       <MenuItem onClick={() => navigate("/")}>

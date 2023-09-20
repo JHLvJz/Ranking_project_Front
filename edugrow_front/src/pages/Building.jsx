@@ -46,7 +46,6 @@ const FooterBox = styled.div`
 
 function Building() {
   const navigate = useNavigate();
-  useEffect(() => console.log("building render"));
 
   return (
     <>

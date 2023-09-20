@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Date from "../components/planner/Date";
+import Calender from "../components/planner/Calender";
 import Chart from "../components/planner/Chart";
 import Footer from "../components/Footer";
 
@@ -22,13 +22,14 @@ const Time = styled.p`
 `;
 
 export default function Planner() {
-  const [date, setDate] = useState();
+  const today = new Date();
+  const [day, setDay] = useState({ date: today });
   const [time, setTime] = useState();
 
   return (
     <>
       <Background>
-        <Date />
+        <Calender day={day} setDay={setDay} />
         <Time>08 : 23 : 39</Time>
         <Chart />
       </Background>

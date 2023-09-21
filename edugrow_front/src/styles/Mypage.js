@@ -70,7 +70,7 @@ export const MedalBox = styled.div`
 export const ResultBox = styled.div`
   position: relative;
 
-  width: 80%;
+  width: 90%;
   height: 164px;
   margin: 10px auto;
 
@@ -105,7 +105,7 @@ export const BasicBox = styled.div`
   margin: auto;
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 80%;
+  width: 90%;
   overflow-x: scroll;
   overflow-y: hidden;
 

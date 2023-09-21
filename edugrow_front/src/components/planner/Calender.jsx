@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, forwardRef } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -12,12 +14,15 @@ const Wrapper = styled.div`
 `;
 
 const Btn = styled.button`
-  border: 0;
+  border: none;
+  ${({ disabled }) => disabled && "visibility: hidden;"}
   background-color: transparent;
   cursor: pointer;
 `;
 
 const Img = styled.img`
+  ${({ disabled }) => disabled && "visibility: hidden;"}
+
   width: 10px;
   height: auto;
 `;
@@ -36,7 +41,32 @@ const Text = styled.span`
   color: white;
 `;
 
+const CustomDatePicker = styled(DatePicker)`
+  margin-top: 1.5rem;
+  width: 300px;
+  height: 42px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+`;
+
 export default function Calender({ day, setDay }) {
+  const [isToday, setIsToday] = useState(true);
+  const tom = new Date();
+
+  useEffect(() => {
+    const today = new Date();
+    tom.setDate(today.getDate() + 1);
+  }, []);
+
+  useEffect(() => {
+    const today = new Date();
+    const nextDay = new Date();
+    nextDay.setDate(day.date.getDate() + 1);
+    if (nextDay > today) setIsToday(true);
+    else setIsToday(false);
+  }, [day]);
+
   function handleMinus() {
     setDay((prev) => {
       const newDate = prev.date;
@@ -53,22 +83,28 @@ export default function Calender({ day, setDay }) {
     });
   }
 
+  const CustomDate = forwardRef(({ value, onClick }, ref) => (
+    <Text onClick={onClick} ref={ref}>
+      {value}
+    </Text>
+  ));
+
   return (
     <Wrapper>
       <Title>스터디 플래너</Title>
       <Btn onClick={handleMinus}>
         <Img src="/img/left.png" />
       </Btn>
-      <Btn>
-        {
-          <Text>
-            {day.date.getFullYear()}년 {day.date.getMonth() + 1}월{" "}
-            {day.date.getDate()}일
-          </Text>
-        }
-      </Btn>
-      <Btn onClick={handlePlus}>
-        <Img src="/img/right.png" />
+      <DatePicker
+        selected={day.date}
+        onChange={(d) => setDay({ date: d })}
+        customInput={<CustomDate />}
+        dateFormat="yyyy년 M월 d일"
+        todayButton="오늘"
+        maxDate={tom}
+      />
+      <Btn onClick={handlePlus} disabled={isToday}>
+        <Img src="/img/right.png" disabled={isToday} />
       </Btn>
     </Wrapper>
   );

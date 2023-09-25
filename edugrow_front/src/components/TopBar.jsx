@@ -27,7 +27,14 @@ function TopBar() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+        zIndex: 10,
+      }}
+    >
       <TopContainer>
         <MypageBox>
           <UserImg src="/img/user.png" />

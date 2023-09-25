@@ -9,7 +9,6 @@ import Signup from "./pages/Signup";
 import Building from "./pages/Building";
 import Ranking from "./pages/Ranking";
 import Planner from "./pages/Planner";
-import Rank from "./components/building/Rank";
 import Kakao from "./pages/Kakao";
 
 function App() {
@@ -20,6 +19,7 @@ function App() {
           <GlobalFonts />
           <Routes>
             <Route path="/" element={<Kakao />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/ready" element={<Ready />} />
             <Route path="/mypage" element={<Mypage />} />
             <Route path="/stopwatch" element={<Stopwatch />} />

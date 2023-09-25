@@ -1,4 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState, memo, useCallback, useMemo } from "react";
+import TopBar from "../components/TopBar";
+import Footer from "../components/Footer";
+
+import buildingList from "../SampleData";
+import CustomMarker from "../components/CustomMarker";
 
 const { kakao } = window;
 
@@ -17,10 +22,13 @@ function Kakao() {
     <div
       id="map"
       style={{
-        width: "500px",
-        height: "500px",
+        width: "100%",
+        height: "calc(100vh - 82px)",
       }}
-    ></div>
+    >
+      <TopBar />
+      <Footer style={{ zIndex: 10 }} chosen={0} />
+    </div>
   );
 }
 

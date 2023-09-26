@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Name from "../components/building/Name";
 import Mytime from "../components/building/Mytime";
@@ -7,6 +7,7 @@ import Rank from "../components/building/Rank";
 import BuildingInfo from "../components/building/BuildingInfo";
 import BackImg from "../img/Back.png";
 import Footer from "../components/Footer";
+import buildingList from "../SampleData";
 
 const BackBtn = styled.button`
   all: unset;
@@ -45,16 +46,19 @@ const FooterBox = styled.div`
 `;
 
 function Building() {
+  const { buildingId } = useParams();
   const navigate = useNavigate();
 
   return (
     <>
-      {" "}
       <Background>
         <BackBtn onClick={() => navigate(-1)}>
           <img src={BackImg} width={"20px"} />
         </BackBtn>
-        <Name></Name>
+        <Name
+          name={buildingList[buildingId - 1].name}
+          src={`/img/${buildingList[buildingId - 1].id}.png`}
+        />
         <Mytime time={5000} />
         <Rank myRank={10} prevTime={100} nextTime={50} />
         <BuildingInfo></BuildingInfo>

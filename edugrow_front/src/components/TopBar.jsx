@@ -11,6 +11,7 @@ import {
 } from "../styles/Home";
 import { TopContainer } from "../styles/layout";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import buildingList from "../SampleData";
 import { useRef, useState } from "react";
 
@@ -22,8 +23,8 @@ function TopBar() {
   });
   console.log(matchedList, "---");
 
-  function SearchingWord(userInput) {
-    setWord(userInput);
+  function SearchingWord(e) {
+    setWord(e.target.value);
   }
 
   return (
@@ -44,13 +45,15 @@ function TopBar() {
 
           <SearchInput
             placeholder="공부할 장소 검색"
-            onChange={(e) => SearchingWord(e.target.value)}
+            onChange={SearchingWord}
           />
 
           {word && (
             <SearchList>
               {matchedList?.map((item) => (
-                <SearchItem key={item["id"]}>{item["name"]}</SearchItem>
+                <Link to={`/building/${item.id}`}>
+                  <SearchItem key={item["id"]}>{item["name"]}</SearchItem>
+                </Link>
               ))}
             </SearchList>
           )}

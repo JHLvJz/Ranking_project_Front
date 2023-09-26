@@ -24,7 +24,7 @@ function App() {
             <Route path="/mypage" element={<Mypage />} />
             <Route path="/stopwatch" element={<Stopwatch />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/building" element={<Building />} />
+            <Route path="/building/:buildingId" element={<Building />} />
             <Route path="/ranking" element={<Ranking />} />
             <Route path="/planner" element={<Planner />} />
           </Routes>

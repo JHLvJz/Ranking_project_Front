@@ -38,7 +38,8 @@ const C3 = styled(Circle)`
 `;
 
 const Icon = styled.img`
-  top: 35px;
+  position: relative;
+  top: 30px;
   height: 50px;
   width: auto;
 `;
@@ -58,13 +59,13 @@ const Title = styled.span`
     0px 3px #233554;
 `;
 
-export default function Name() {
+export default function Name({ src, name }) {
   return (
     <Wrapper>
       <C1>
         <C2>
           <C3>
-            <Icon /> <Title>중앙광장</Title>
+            <Icon src={src} /> <Title>{name}</Title>
           </C3>
         </C2>
       </C1>

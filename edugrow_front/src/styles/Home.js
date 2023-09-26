@@ -34,6 +34,7 @@ export const SearchInput = styled.input`
   border: none;
   background-color: #eeee;
 
+  font-family: "Inter Regular";
   font-size: 100%;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
@@ -53,15 +54,21 @@ export const SearchList = styled.ul`
 
 export const SearchItem = styled.li`
   width: 100%;
-  height: 30px;
+  height: 40px;
 
   margin-top: 1%;
   margin-bottom: 1%;
   margin-left: 7%;
 
+  font-family: "Inter Regular";
   text-align: left;
   list-style: none;
   line-height: 30px;
+
+  :hover {
+    font-weight: 700;
+    cursor: pointer;
+  }
 `;
 
 export const UserImg = styled.img`
